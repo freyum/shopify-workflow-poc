@@ -1,4 +1,4 @@
-name: Deploy Product Theme
+name: Deploy Production Theme
 
 on:
   push:
@@ -8,7 +8,7 @@ on:
 
 jobs:
   deploy:
-    name: Deploy Shopify Theme
+    name: Deploy Production Theme
     runs-on: ubuntu-latest
     steps:
       # basically git clone
