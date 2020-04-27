@@ -56,3 +56,5 @@ Workflow is pretty simple, based on GitFlow but with no release branch nor tags.
 ## CI/CD with GitHub Actions
 
 Configurations
+
+
