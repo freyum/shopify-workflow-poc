@@ -1,0 +1,38 @@
+{% comment %}
+    Renders a product card using "List" style
+
+    Accepts:
+    - product: {Object} Product Liquid object (required)
+    - show_vendor: {Boolean} Show the product's vendor depending on the section setting (optional)
+
+    Usage:
+    {% include 'product-card-list', product: product, show_vendor: section.settings.show_vendor %}
+{% endcomment %}
+<div class="product-card product-card--list">
+  <a class="full-width-link" href="{{ product.url | within: collection }}">
+    <span class="visually-hidden">{{ product.title }}</span>
+  </a>
+
+  <div class="list-view-item__link">
+    <div class="list-view-item__image-column">
+      <div class="list-view-item__image-wrapper product-card__image-wrapper">
+      {% unless product.featured_media == null %}
+        <img class="list-view-item__image" src="{{ product.featured_media | img_url: '95x95', scale: 2 }}" alt="{{ product.featured_media.alt }}">
+      {% endunless %}
+      </div>
+    </div>
+
+    <div class="list-view-item__title-column">
+      <div class="list-view-item__title" aria-hidden="true">
+        <span class="product-card__title">{{ product.title }}</span>
+      </div>
+      {% if show_vendor %}
+        <div class="list-view-item__vendor">{{ product.vendor }}</div>
+      {% endif %}
+    </div>
+
+    <div class="list-view-item__price-column">
+      {% include 'product-price-listing', product: product, show_vendor: false %}
+    </div>
+  </div>
+</div>

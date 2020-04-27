@@ -1,0 +1,259 @@
+<div class="page-width">
+  {% if section.settings.title != blank %}
+    <div class="section-header text-center">
+      <h2>{{ section.settings.title | escape }}</h2>
+    </div>
+  {% endif %}
+
+  {% if section.blocks.size > 0 %}
+    <ul class="logo-bar{% if section.settings.title_enable %} logo-bar--large{% endif %}">
+      {% for block in section.blocks %}
+        <li class="logo-bar__item{% if section.settings.title_enable %} logo-bar__item--large{% endif %}" {{ block.shopify_attributes }}>
+          {% if block.settings.link != blank %}
+            <a href="{{ block.settings.link }}" class="logo-bar__link">
+          {% endif %}
+          {% if block.settings.image != blank %}
+            {{ block.settings.image | img_url: '160x160', scale: 2 | img_tag: block.settings.image.alt, 'logo-bar__image' }}
+          {% else %}
+            {{ 'logo' | placeholder_svg_tag: 'placeholder-svg' }}
+          {% endif %}
+          {% if block.settings.link != blank %}
+            </a>
+          {% endif %}
+        </li>
+      {% endfor %}
+    </ul>
+  {% endif %}
+
+  {% if section.blocks.size == 0 %}
+    {% include 'no-blocks' %}
+  {% endif %}
+</div>
+
+
+
+{% schema %}
+{
+  "name": {
+    "da": "Logoliste",
+    "de": "Logo-Liste",
+    "en": "Logo list",
+    "es": "Lista de logos",
+    "fi": "Logoluettelo",
+    "fr": "Liste des logos",
+    "hi": "लोगो सूची",
+    "it": "Elenco loghi",
+    "ja": "ロゴリスト",
+    "ko": "로고 목록",
+    "nb": "Logoliste",
+    "nl": "Logolijst",
+    "pt-BR": "Lista de logotipos",
+    "pt-PT": "Lista de logótipos",
+    "sv": "Logotyplista",
+    "th": "รายการโลโก้",
+    "zh-CN": "logo 列表",
+    "zh-TW": "標誌清單"
+  },
+  "class": "index-section",
+  "max_blocks": 20,
+  "settings": [
+    {
+      "type": "text",
+      "id": "title",
+      "label": {
+        "da": "Overskrift",
+        "de": "Titel",
+        "en": "Heading",
+        "es": "Título",
+        "fi": "Otsake",
+        "fr": "En-tête",
+        "hi": "शीर्षक",
+        "it": "Heading",
+        "ja": "見出し",
+        "ko": "제목",
+        "nb": "Overskrift",
+        "nl": "Kop",
+        "pt-BR": "Título",
+        "pt-PT": "Título",
+        "sv": "Rubrik",
+        "th": "ส่วนหัว",
+        "zh-CN": "标题",
+        "zh-TW": "標題"
+      },
+      "default": {
+        "da": "Logoliste",
+        "de": "Logo-Liste",
+        "en": "Logo list",
+        "es": "Lista de logos",
+        "fi": "Logoluettelo",
+        "fr": "Liste de logos",
+        "hi": "लोगो सूची",
+        "it": "Elenco loghi",
+        "ja": "ロゴリスト",
+        "ko": "로고 목록",
+        "nb": "Logoliste",
+        "nl": "Logolijst",
+        "pt-BR": "Lista de logotipos",
+        "pt-PT": "Lista de logótipos",
+        "sv": "Logotyplista",
+        "th": "รายการโลโก้",
+        "zh-CN": "logo 列表",
+        "zh-TW": "標誌清單"
+      }
+    }
+  ],
+  "blocks": [
+    {
+      "type": "logo_image",
+      "name": {
+        "da": "Logo",
+        "de": "Logo",
+        "en": "Logo",
+        "es": "Logo",
+        "fi": "Logo",
+        "fr": "Logo",
+        "hi": "लोगो",
+        "it": "Logo",
+        "ja": "ロゴ",
+        "ko": "로고",
+        "nb": "Logo",
+        "nl": "Logo",
+        "pt-BR": "Logotipo",
+        "pt-PT": "Logótipo",
+        "sv": "Logotyp",
+        "th": "โลโก้",
+        "zh-CN": "logo",
+        "zh-TW": "商標"
+      },
+      "settings": [
+        {
+          "type": "image_picker",
+          "id": "image",
+          "label": {
+            "da": "Billede",
+            "de": "Foto",
+            "en": "Image",
+            "es": "Imagen",
+            "fi": "Kuva",
+            "fr": "Image",
+            "hi": "इमेज",
+            "it": "Immagine",
+            "ja": "画像",
+            "ko": "이미지",
+            "nb": "Bilde",
+            "nl": "Afbeelding",
+            "pt-BR": "Imagem",
+            "pt-PT": "Imagem",
+            "sv": "Bild",
+            "th": "รูปภาพ",
+            "zh-CN": "图片",
+            "zh-TW": "圖片"
+          }
+        },
+        {
+          "type": "url",
+          "id": "link",
+          "label": {
+            "da": "Link",
+            "de": "Link",
+            "en": "Link",
+            "es": "Enlace",
+            "fi": "Linkki",
+            "fr": "Lien",
+            "hi": "लिंक",
+            "it": "Link",
+            "ja": "リンク",
+            "ko": "링크",
+            "nb": "Kobling",
+            "nl": "Link",
+            "pt-BR": "Link",
+            "pt-PT": "Ligação",
+            "sv": "Länk",
+            "th": "ลิงก์",
+            "zh-CN": "链接",
+            "zh-TW": "連結"
+          },
+          "info": {
+            "da": "Valgfri",
+            "de": "Optional",
+            "en": "Optional",
+            "es": "Opcional",
+            "fi": "Valinnainen",
+            "fr": "Facultatif",
+            "hi": "वैकल्पिक",
+            "it": "Facoltativo",
+            "ja": "オプション",
+            "ko": "선택 사항",
+            "nb": "Valgfritt",
+            "nl": "Optioneel",
+            "pt-BR": "Opcional",
+            "pt-PT": "Opcional",
+            "sv": "Valfritt",
+            "th": "ไม่จำเป็น",
+            "zh-CN": "可选",
+            "zh-TW": "(選填)"
+          }
+        }
+      ]
+    }
+  ],
+  "presets": [
+    {
+      "name": {
+        "da": "Logoliste",
+        "de": "Logo-Liste",
+        "en": "Logo list",
+        "es": "Lista de logos",
+        "fi": "Logoluettelo",
+        "fr": "Liste de logos",
+        "hi": "लोगो सूची",
+        "it": "Elenco loghi",
+        "ja": "ロゴリスト",
+        "ko": "로고 목록",
+        "nb": "Logoliste",
+        "nl": "Logolijst",
+        "pt-BR": "Lista de logotipos",
+        "pt-PT": "Lista de logótipos",
+        "sv": "Logotyplista",
+        "th": "รายการโลโก้",
+        "zh-CN": "logo 列表",
+        "zh-TW": "標誌清單"
+      },
+      "category": {
+        "da": "Billede",
+        "de": "Foto",
+        "en": "Image",
+        "es": "Imagen",
+        "fi": "Kuva",
+        "fr": "Image",
+        "hi": "इमेज",
+        "it": "Immagine",
+        "ja": "画像",
+        "ko": "이미지",
+        "nb": "Bilde",
+        "nl": "Afbeelding",
+        "pt-BR": "Imagem",
+        "pt-PT": "Imagem",
+        "sv": "Bild",
+        "th": "รูปภาพ",
+        "zh-CN": "图片",
+        "zh-TW": "圖片"
+      },
+      "blocks": [
+        {
+          "type": "logo_image"
+        },
+        {
+          "type": "logo_image"
+        },
+        {
+          "type": "logo_image"
+        },
+        {
+          "type": "logo_image"
+        }
+      ]
+    }
+  ]
+}
+{% endschema %}
