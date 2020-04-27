@@ -3,6 +3,7 @@
 This is a Proof of Concept of workflow with different environments using Github and GitHub Actions.
 
 [Workflow](#workflow)
+
 [GitHub Actions](#cicd-with-github-actions)
 
 Pre-requisites : 
@@ -66,6 +67,11 @@ _We created a template on development store for each developer._
 
 ## CI/CD with GitHub Actions
 
+### Actions
+
+Workflow files are available [here](https://github.com/freyum/shopify-workflow-poc/tree/master/.github/workflows).
+They used the Deploy Shopify theme Actions : https://github.com/marketplace/actions/deploy-shopify-theme
+
 ### Secrets
 
 First you have to generate a private app to get an API KEY on Shopify. [Get API Access](https://shopify.github.io/themekit/#get-api-access).
@@ -85,13 +91,8 @@ Then you'll need to provide some secrets :
 
 * **THEME_PATH**: Path of your theme on your GitHub repository. If your theme is at the root of your repository, just use `./`.
 
-![env vars](https://user-images.githubusercontent.com/1866496/80390466-be7f7d00-88ac-11ea-98ac-b9b3e93bd55b.png)
 
-### GitHub Actions
-
-Workflows are available [here](https://github.com/freyum/shopify-workflow-poc/tree/master/.github/workflows).
-
-They are based on https://github.com/marketplace/actions/deploy-shopify-theme
+![env vars](https://user-images.githubusercontent.com/1866496/80392807-e3292400-88af-11ea-9547-20d35c5b1978.png)
 
 ## License
 
