@@ -14,9 +14,11 @@ jobs:
       # basically git clone
       - uses: actions/checkout@v2
       # deploy shopify theme
-      - uses: pgrimaud/action-shopify@v2
+      - uses: pgrimaud/action-shopify@2.1.0
         env:
           SHOPIFY_PASSWORD: ${{ secrets.SHOPIFY_PRODUCTION_PASSWORD }}
           SHOPIFY_STORE_URL: ${{ secrets.SHOPIFY_PRODUCTION_STORE_URL }}
           SHOPIFY_THEME_ID: ${{ secrets.SHOPIFY_PRODUCTION_THEME_ID }}
           THEME_PATH: ${{ secrets.THEME_PATH }}
+        with:
+          args: --ignored-file=config/settings_data.json

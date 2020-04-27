@@ -2,6 +2,9 @@
 
 This is a Proof of Concept of workflow with different environments using Github and GitHub Actions.
 
+[Workflow](#workflow)
+[GitHub Actions](#cicd-with-github-actions)
+
 Pre-requisites : 
 - GitHub account and repository
 - Shopify store of production
@@ -33,6 +36,9 @@ Production and staging store have same configuration. But we often have the same
 
 Workflow is pretty simple, based on GitFlow but with no release branch nor tags.
 
+`master`, `preprod` and `develop` branches are protected. It's not possible to push directly on them.
+The best way is to use pull requests.
+
 ### Principal
 
 1. Create a new branch from `master` (eg. `feature/store-locator`)
@@ -47,14 +53,46 @@ Workflow is pretty simple, based on GitFlow but with no release branch nor tags.
 
 ![Basic workflow](https://user-images.githubusercontent.com/1866496/80381771-b66e1000-88a1-11ea-8039-7deb5842c772.png)
 
-### Workflow with fix branch
+### Workflow with multiple branches
 
 ![Workflow with fix](https://user-images.githubusercontent.com/1866496/80384661-73ae3700-88a5-11ea-862c-faf6abbb5b5a.png)
 
-**New branch always start from `master` one, even if the purpose is a new feature or a fix.
+**New branch always start from `master` one, even if the purpose is a new feature or a fix.**
+
+## Local development
+
+We're using Theme Kit for local developers : https://shopify.github.io/themekit/
+_We created a template on development store for each developer._
 
 ## CI/CD with GitHub Actions
 
-Configurations
+### Secrets
+
+First you have to generate a private app to get an API KEY on Shopify. [Get API Access](https://shopify.github.io/themekit/#get-api-access).
+
+Then you'll need to provide some secrets : 
+
+**SHOPIFY_STAGING_PASSWORD**: Your password from your private app previously created.
+**SHOPIFY_STAGING_STORE_URL**: Your development store url. (e.g. `demo-staging.myshopify.com`).
+**SHOPIFY_STAGING_THEME_ID**: Your theme id on your Shopify development Store.
 
 
+**SHOPIFY_PRODUCTION_PASSWORD**: Your password from your private app previously created.
+**SHOPIFY_PRODUCTION_STORE_URL**: Your production store url. (e.g. `demo.myshopify.com`).
+**SHOPIFY_PREPRODUCTION_THEME_ID**: Your preproduction theme id on your Shopify production Store.
+**SHOPIFY_PRODUCTION_THEME_ID**: Your production theme id on your Shopify production Store.
+
+
+**THEME_PATH**: Path of your theme on your GitHub repository. If your theme is at the root of your repository, just use `./`.
+
+![env vars](https://user-images.githubusercontent.com/1866496/80390466-be7f7d00-88ac-11ea-98ac-b9b3e93bd55b.png)
+
+### GitHub Actions
+
+Workflows are available [here](https://github.com/freyum/shopify-workflow-poc/tree/master/.github/workflows).
+
+They are based on https://github.com/marketplace/actions/deploy-shopify-theme
+
+## License
+
+The Dockerfile and associated scripts and documentation in this project are released under the [MIT License](LICENSE).
