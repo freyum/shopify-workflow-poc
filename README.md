@@ -72,18 +72,18 @@ First you have to generate a private app to get an API KEY on Shopify. [Get API 
 
 Then you'll need to provide some secrets : 
 
-**SHOPIFY_STAGING_PASSWORD**: Your password from your private app previously created.
-**SHOPIFY_STAGING_STORE_URL**: Your development store url. (e.g. `demo-staging.myshopify.com`).
-**SHOPIFY_STAGING_THEME_ID**: Your theme id on your Shopify development Store.
+* **SHOPIFY_STAGING_PASSWORD**: Your password from your private app previously created.
+* **SHOPIFY_STAGING_STORE_URL**: Your development store url. (e.g. `demo-staging.myshopify.com`).
+* **SHOPIFY_STAGING_THEME_ID**: Your theme id on your Shopify development Store.
 
 
-**SHOPIFY_PRODUCTION_PASSWORD**: Your password from your private app previously created.
-**SHOPIFY_PRODUCTION_STORE_URL**: Your production store url. (e.g. `demo.myshopify.com`).
-**SHOPIFY_PREPRODUCTION_THEME_ID**: Your preproduction theme id on your Shopify production Store.
-**SHOPIFY_PRODUCTION_THEME_ID**: Your production theme id on your Shopify production Store.
+* **SHOPIFY_PRODUCTION_PASSWORD**: Your password from your private app previously created.
+* **SHOPIFY_PRODUCTION_STORE_URL**: Your production store url. (e.g. `demo.myshopify.com`).
+* **SHOPIFY_PREPRODUCTION_THEME_ID**: Your preproduction theme id on your Shopify production Store.
+* **SHOPIFY_PRODUCTION_THEME_ID**: Your production theme id on your Shopify production Store.
 
 
-**THEME_PATH**: Path of your theme on your GitHub repository. If your theme is at the root of your repository, just use `./`.
+* **THEME_PATH**: Path of your theme on your GitHub repository. If your theme is at the root of your repository, just use `./`.
 
 ![env vars](https://user-images.githubusercontent.com/1866496/80390466-be7f7d00-88ac-11ea-98ac-b9b3e93bd55b.png)
 
