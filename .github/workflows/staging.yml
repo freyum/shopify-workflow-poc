@@ -1,14 +1,14 @@
-name: Deploy Production Theme
+name: Deploy Staging Theme
 
 on:
   push:
     pull_request: null
     branches:
-      - master
+      - develop
 
 jobs:
   deploy:
-    name: Deploy Production Theme
+    name: Deploy Staging Theme
     runs-on: ubuntu-latest
     steps:
       # basically git clone
@@ -16,7 +16,7 @@ jobs:
       # deploy shopify theme
       - uses: pgrimaud/action-shopify@v2
         env:
-          SHOPIFY_PASSWORD: ${{ secrets.SHOPIFY_PRODUCTION_PASSWORD }}
-          SHOPIFY_STORE_URL: ${{ secrets.SHOPIFY_PRODUCTION_STORE_URL }}
-          SHOPIFY_THEME_ID: ${{ secrets.SHOPIFY_PRODUCTION_THEME_ID }}
+          SHOPIFY_PASSWORD: ${{ secrets.SHOPIFY_STAGING_PASSWORD }}
+          SHOPIFY_STORE_URL: ${{ secrets.SHOPIFY_STAGING_STORE_URL }}
+          SHOPIFY_THEME_ID: ${{ secrets.SHOPIFY_STAGING_THEME_ID }}
           THEME_PATH: ${{ secrets.THEME_PATH }}
