@@ -19,8 +19,9 @@ We're using 2 stores for our workflow with multiple themes :
 
 ## Branches
 
-- `master` (for production)
-- `staging` (for staging )
+- `master` (for production theme on production environment)
+- `preprod` (for pre-production theme on production environment)
+- `develop` (for staging theme on development environment)
 
 ## Philosophy
 
@@ -30,9 +31,17 @@ Production and staging store have same configuration. But we often have the same
 
 ## Workflow
 
-Workflow is pretty simple, based on GitFlow but without develop and release branches.
+Workflow is pretty simple, based on GitFlow but without release branch nor tags.
 
-![Basic Workflow](https://user-images.githubusercontent.com/1866496/80381771-b66e1000-88a1-11ea-8039-7deb5842c772.png)
+### Principal
+
+![Basic workflow](https://user-images.githubusercontent.com/1866496/80381771-b66e1000-88a1-11ea-8039-7deb5842c772.png)
+
+### With fix branch
+
+![Workflow with fix](https://user-images.githubusercontent.com/1866496/80384661-73ae3700-88a5-11ea-862c-faf6abbb5b5a.png)
+
+If you have any fix to apply to a WIP feature after test in staging theme : 
 
 ## CI/CD with GitHub Actions
 
