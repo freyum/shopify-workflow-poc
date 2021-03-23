@@ -17,7 +17,7 @@ jobs:
         env:
           THEMECHECK_OPTIONS: '-a'
       # create a PR with auto corrections if needed
-      - uses: peter-evans/create-pull-request@v3.8
+      - uses: peter-evans/create-pull-request@v3
         with:
           token: ${{ secrets.PAT }}
           commit-message: 'Fixes code using Theme Check'
