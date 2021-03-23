@@ -5,7 +5,7 @@
     - collection: {Object} Collection Liquid object (required)
 
     Usage:
-    {% include 'collection-grid-item', collection: collection %}
+    {% render 'collection-grid-item', collection: collection %}
 {% endcomment %}
 {% if collection.image %}
   {%- assign collection_image = collection.image -%}
@@ -19,7 +19,7 @@
   <a href="{% if collection.products == empty %}#{% else %}{{ collection.url }}{% endif %}" class="collection-grid-item__link">
     {% unless collection_image == blank %}
       <div class="collection-grid-item__overlay box ratio-container lazyload js"
-        data-bgset="{% include 'bgset', image: collection_image %}"
+        data-bgset="{% render 'bgset', image: collection_image %}"
         data-sizes="auto"
         data-parent-fit="cover"
         style="background-image: url('{{ collection_image | img_url: '300x300' }}')">

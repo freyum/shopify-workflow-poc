@@ -2,7 +2,6 @@ name: Deploy Pre-production Theme
 
 on:
   push:
-    pull_request: null
     branches:
       - preprod
 
@@ -14,7 +13,7 @@ jobs:
       # basically git clone
       - uses: actions/checkout@v2
       # deploy shopify theme
-      - uses: pgrimaud/action-shopify@2.1.0
+      - uses: pgrimaud/action-shopify@master
         env:
           SHOPIFY_PASSWORD: ${{ secrets.SHOPIFY_PRODUCTION_PASSWORD }}
           SHOPIFY_STORE_URL: ${{ secrets.SHOPIFY_PRODUCTION_STORE_URL }}

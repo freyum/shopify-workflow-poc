@@ -1,3 +1,4 @@
+{% comment %}theme-check-disable{% endcomment %}
 {%- if section.settings.hero_layout == 'full_width' and section.settings.hero_size == 'adapt' -%}
   {%- if section.settings.image.aspect_ratio == blank -%}
     {%- assign min_aspect_ratio = 2.0 -%}
@@ -74,7 +75,7 @@
           data-alt="{{ section.settings.image.alt | escape }}"
           {% endunless %}
          data-bg="{{ section.settings.image | img_url: '300x300' }}"
-         data-bgset="{% include 'bgset', image: section.settings.image %}"
+         data-bgset="{% render 'bgset', image: section.settings.image %}"
          data-sizes="auto"
          data-parent-fit="cover"
          style="background-position: {{ section.settings.alignment }}; background-image: url('{{ section.settings.image | img_url: '300x300' }});"

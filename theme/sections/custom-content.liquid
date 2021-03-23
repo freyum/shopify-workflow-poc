@@ -42,7 +42,7 @@
         {% capture img_wrapper_id %}CustomImageWrapper--{{ forloop.index }}-{{ block.settings.image.id }}{% endcapture %}
 
         {% unless block.settings.image == blank %}
-          {% include 'image-style', image: block.settings.image, height: max_height, wrapper_id: img_wrapper_id, img_id: img_id %}
+          {% render 'image-style', image: block.settings.image, height: max_height, wrapper_id: img_wrapper_id, img_id: img_id %}
         {% endunless %}
       {% endif %}
 
@@ -94,7 +94,7 @@
             {% when 'product' %}
               {%- assign product = all_products[block.settings.product] -%}
               {% if product.title.size > 0 %}
-                {% include 'product-card-grid', max_height: max_height, product: product %}
+                {% render 'product-card-grid', max_height: max_height, product: product %}
               {% else %}
                 {% comment %}
                   No product yet. Show onboarding one.
@@ -114,7 +114,7 @@
               {% endif %}
             {% when 'collection' %}
               {%- assign collection = collections[block.settings.collection] -%}
-              {% include 'collection-grid-item', collection: collection %}
+              {% render 'collection-grid-item', collection: collection %}
             {% when 'html' %}
               {% if block.settings.code != blank %}
                 {{ block.settings.code }}
@@ -140,11 +140,11 @@
                     {%- capture img_wrapper_id -%}ArticleImageWrapper-{{ img.id }}{%- endcapture -%}
                     {%- assign img_url = img | img_url: '1x1' | replace: '_1x1.', '_{width}x.' -%}
 
-                    {% include 'image-style', image: img, height: 600, wrapper_id: img_wrapper_id, img_id: img_id %}
+                    {% render 'image-style', image: img, height: 600, wrapper_id: img_wrapper_id, img_id: img_id %}
 
                     <div class="blog-card__image-wrapper blog-card__image-wrapper--{{ block.settings.image_size }}">
                       <a href="{{ blog.url | default: '#' }}" class="blog-card__link">
-                        <div class="blog-card__overlay box ratio-container js lazyload" data-bgset="{% include 'bgset', image: img %}" data-sizes="auto" data-parent-fit="cover" style="background-image: url('{{ img | img_url: '300x300' }}')"></div>
+                        <div class="blog-card__overlay box ratio-container js lazyload" data-bgset="{% render 'bgset', image: img %}" data-sizes="auto" data-parent-fit="cover" style="background-image: url('{{ img | img_url: '300x300' }}')"></div>
                         <noscript>
                           <div class="blog-card__overlay" style="background-image: url('{{ img | img_url: '1024x1024' }}')"></div>
                         </noscript>
@@ -321,7 +321,7 @@
   </div>
 
   {% if section.blocks.size == 0 %}
-    {% include 'no-blocks' %}
+    {% render 'no-blocks' %}
   {% endif %}
 </div>
 

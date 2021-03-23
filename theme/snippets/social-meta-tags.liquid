@@ -13,8 +13,8 @@
   {%- assign og_title = product.title | strip_html -%}
   {%- assign og_type = 'product' -%}
   {% if product.media.size > 0 %}
-    {%- capture og_image_tags -%}{% for media in product.media limit:3 -%}<meta property="og:image" content="http:{{ media | img_url: '1200x1200' }}">{% endfor -%}{% endcapture -%}
-    {%- capture og_image_secure_url_tags -%}{% for media in product.media limit:3 -%}<meta property="og:image:secure_url" content="https:{{ media | img_url: '1200x1200' }}">{% endfor -%}{% endcapture -%}
+    {%- capture og_image_tags -%}{% for media in product.media limit: 3 -%}<meta property="og:image" content="http:{{ media | img_url: '1200x1200' }}">{% endfor -%}{% endcapture -%}
+    {%- capture og_image_secure_url_tags -%}{% for media in product.media limit: 3 -%}<meta property="og:image:secure_url" content="https:{{ media | img_url: '1200x1200' }}">{% endfor -%}{% endcapture -%}
   {% endif %}
 
 {% elsif request.page_type == 'article' %}

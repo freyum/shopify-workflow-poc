@@ -47,7 +47,7 @@
                  rel="noopener"
                  aria-describedby="a11y-new-window-external-message"
               >
-                {% if section.settings.show_pin %}{% include 'icon-pin' %}{% endif %}
+                {% if section.settings.show_pin %}{% render 'icon-pin' %}{% endif %}
                 <span>{{ section.settings.button_text | escape }}</span>
               </a>
             </p>
@@ -58,7 +58,7 @@
     <div class="map-section__background-wrapper">
       {% if bg_image != blank %}
         <div class="map-section__image lazyload js"
-             data-bgset="{% include 'bgset', image: bg_image %}"
+             data-bgset="{% render 'bgset', image: bg_image %}"
              data-sizes="auto"
              data-parent-fit="cover"
              style="background-image: url('{{ bg_image | img_url: '300x300' }});">

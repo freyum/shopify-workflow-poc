@@ -1,3 +1,4 @@
+{% comment %}theme-check-disable{% endcomment %}
 {%- assign product = all_products[section.settings.featured_product] -%}
 
 {% if product == empty %}
@@ -40,7 +41,7 @@
         {%- assign featured_media = product.selected_or_first_available_variant.featured_media | default: product.featured_media -%}
 
         {%- for media in product.media -%}
-          {% include 'media', media: media, featured_media: featured_media, height: height, enable_image_zoom: enable_image_zoom, image_zoom_size: product_image_zoom_size, image_scale: product_image_scale %}
+          {% render 'media', media: media, featured_media: featured_media, height: height, enable_image_zoom: enable_image_zoom, image_zoom_size: product_image_zoom_size, image_scale: product_image_scale %}
         {%- endfor -%}
 
         <noscript>
@@ -59,7 +60,7 @@
             data-shopify-title="{{ product.title | escape }}"
             data-shopify-xr-hidden
           >
-            {% include 'icon-3d-badge-full-color' %}<span class='product-single__view-in-space-text'>{{ 'products.product.view_in_space' | t }}</span>
+            {% render 'icon-3d-badge-full-color' %}<span class='product-single__view-in-space-text'>{{ 'products.product.view_in_space' | t }}</span>
           </button>
         {%- endif -%}
 
@@ -77,7 +78,7 @@
         <div class="thumbnails-wrapper{% if enable_thumbnail_slides == true %} thumbnails-slider--active{% endif %}">
           {% if enable_thumbnail_slides == true %}
             <button type="button" class="btn btn--link medium-up--hide thumbnails-slider__btn thumbnails-slider__prev thumbnails-slider__prev--{{ section.id }}">
-              {% include 'icon-chevron-left' %}
+              {% render 'icon-chevron-left' %}
               <span class="icon__fallback-text">{{ 'sections.slideshow.previous_slide' | t }}</span>
             </button>
           {% endif %}
@@ -102,12 +103,12 @@
                     <img class="product-single__thumbnail-image" src="{{ media.preview_image | img_url: '110x110', scale: 2 }}" alt="{{ thumbnailAlt }}">
                     {%- if media.media_type == 'video' or media.media_type =='external_video' -%}
                       <div class="product-single__thumbnail-badge">
-                        {% include 'icon-video-badge-full-color' %}
+                        {% render 'icon-video-badge-full-color' %}
                       </div>
                     {%- endif -%}
                     {%- if media.media_type == 'model' -%}
                       <div class="product-single__thumbnail-badge">
-                        {% include 'icon-3d-badge-full-color' %}
+                        {% render 'icon-3d-badge-full-color' %}
                       </div>
                     {%- endif -%}
                 </a>
@@ -116,7 +117,7 @@
           </ul>
           {% if enable_thumbnail_slides == true %}
             <button type="button" class="btn btn--link medium-up--hide thumbnails-slider__btn thumbnails-slider__next thumbnails-slider__next--{{ section.id }}">
-              {% include 'icon-chevron-right' %}
+              {% render 'icon-chevron-right' %}
               <span class="icon__fallback-text">{{ 'sections.slideshow.next_slide' | t }}</span>
             </button>
           {% endif %}
@@ -144,7 +145,7 @@
 
         <div>
           <div class="featured-product__price">
-            {% include 'product-price', variant: current_variant, product: product, show_vendor: section.settings.show_vendor %}
+            {% render 'product-price', variant: current_variant, product: product, show_vendor: section.settings.show_vendor %}
           </div>
 
           {%- if shop.taxes_included or shop.shipping_policy.body != blank -%}
@@ -169,13 +170,13 @@
               </div>
             </div>
           {% else %}
-            {% capture "form_classes" -%}
+            {% capture "form_classes" %}
               product-form product-form-{{ section.id }}
               {%- unless section.settings.show_variant_labels %} product-form--hide-variant-labels{% endunless %}
-              {%- if section.settings.enable_payment_button and product.has_only_default_variant%} product-form--payment-button-no-variants{% endif %}
+              {%- if section.settings.enable_payment_button and product.has_only_default_variant %} product-form--payment-button-no-variants{% endif %}
               {%- if current_variant.available == false %} product-form--variant-sold-out {%- endif -%}
             {%- endcapture %}
-            {% form 'product', product, class:form_classes, novalidate: 'novalidate', data-product-form: '' %}
+            {% form 'product', product, class: form_classes, novalidate: 'novalidate', data-product-form: '' %}
               {% unless section_onboarding %}
                 {% unless product.has_only_default_variant %}
                   <div class="product-form__controls-group">
@@ -218,7 +219,7 @@
 
               <div class="product-form__error-message-wrapper product-form__error-message-wrapper--hidden{% if section.settings.enable_payment_button %} product-form__error-message-wrapper--has-payment-button{% endif %}" data-error-message-wrapper role="alert">
                 <span class="visually-hidden">{{ 'general.accessibility.error' | t }} </span>
-                {% include 'icon-error' %}
+                {% render 'icon-error' %}
                 <span class="product-form__error-message" data-error-message>{{ 'products.product.quantity_minimum_message' | t }}</span>
               </div>
 
@@ -240,7 +241,7 @@
                       {% endunless %}
                     </span>
                     <span class="hide" data-loader>
-                      {% include 'icon-spinner' %}
+                      {% render 'icon-spinner' %}
                     </span>
                   </button>
                   {% if section.settings.enable_payment_button %}
@@ -279,7 +280,7 @@
         </div>
 
         {% if section.settings.show_share_buttons %}
-          {% include 'social-sharing', share_title: product.title, share_permalink: product.url, share_image: product %}
+          {% render 'social-sharing', share_title: product.title, share_permalink: product.url, share_image: product %}
         {% endif %}
       </div>
     </div>

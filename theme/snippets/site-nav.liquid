@@ -5,7 +5,7 @@
     - wrapper_class: {String} CSS wrapper class for the navigation (optional)
 
     Usage:
-    {% include 'site-nav', linklist: section.settings.main_linklist, wrapper_class: 'site-nav--centered' %}
+    {% render 'site-nav', linklist: section.settings.main_linklist, wrapper_class: 'site-nav--centered' %}
 {% endcomment %}
 <ul class="site-nav list--inline{% if wrapper_class != blank %} {{ wrapper_class }}{% endif %}" id="SiteNav">
   {% for link in linklists[linklist].links %}
@@ -24,7 +24,7 @@
     {% if link.links != blank %}
       <li class="site-nav--has-dropdown{% if three_level_nav %} site-nav--has-centered-dropdown{% endif %}{% if link.active %} site-nav--active{% endif %}" data-has-dropdowns>
         <button class="site-nav__link site-nav__link--main site-nav__link--button{% if link.child_active %} site-nav__link--active{% endif %}" type="button" aria-expanded="false" aria-controls="SiteNavLabel-{{ child_list_handle }}">
-          <span class="site-nav__label">{{ link.title | escape }}</span>{% include 'icon-chevron-down' %}
+          <span class="site-nav__label">{{ link.title | escape }}</span>{% render 'icon-chevron-down' %}
         </button>
 
         <div class="site-nav__dropdown{% if three_level_nav %} site-nav__dropdown--centered{% endif %}" id="SiteNavLabel-{{ child_list_handle }}">

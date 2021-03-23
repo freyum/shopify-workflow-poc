@@ -8,7 +8,7 @@
 {% if collection %}
   <div class="text-center return-link-wrapper page-width">
     <a href="{{ collection.url }}" class="btn btn--secondary btn--has-icon-before return-link">
-      {% include 'icon-arrow-left' %}
+      {% render 'icon-arrow-left' %}
       {{ 'products.product.back_to_collection' | t: title: collection.title }}
     </a>
   </div>

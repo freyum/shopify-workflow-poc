@@ -17,9 +17,9 @@
               {% capture img_wrapper_id %}ArticleImageWrapper-{{ article.image.id }}{% endcapture %}
               {%- assign img_url = article.image | img_url: '1x1' | replace: '_1x1.', '_{width}x.' -%}
 
-              {% include 'image-style', image: article.image, height: 345, wrapper_id: img_wrapper_id, img_id: img_id %}
+              {% render 'image-style', image: article.image, height: 345, wrapper_id: img_wrapper_id, img_id: img_id %}
               <div id="{{ img_wrapper_id }}" class="article__grid-image-wrapper js">
-                <div class="article__grid-image-container" style="padding-top:{{ 1 | divided_by: article.image.aspect_ratio | times: 100}}%;">
+                <div class="article__grid-image-container" style="padding-top:{{ 1 | divided_by: article.image.aspect_ratio | times: 100 }}%;">
                   <img id="{{ img_id }}"
                       class="article__grid-image lazyload"
                       src="{{ article.image | img_url: '300x300' }}"
