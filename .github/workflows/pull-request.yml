@@ -1,0 +1,23 @@
+name: Deploy Staging Theme
+
+on:
+  pull_request:
+
+jobs:
+  deploy:
+    name: Deploy Staging Theme
+    runs-on: ubuntu-latest
+    steps:
+      # basically git clone
+      - uses: actions/checkout@v2
+      # run theme check
+      - uses: pgrimaud/action-shopify-theme-check@master
+        env:
+          THEMECHECK_OPTIONS: '-a'
+      # create a PR with auto corrections if needed
+      - uses: gr2m/create-or-update-pull-request-action@v1
+        env:
+          GITHUB_TOKEN: ${{ secrets.PAT }}
+        with:
+          title: "Fixes code using Theme Check"
+          commit-message: "Fixes code using Theme Check"

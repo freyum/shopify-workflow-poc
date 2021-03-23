@@ -16,12 +16,6 @@ jobs:
       - uses: pgrimaud/action-shopify-theme-check@master
         env:
           THEMECHECK_OPTIONS: '-a'
-      # create a PR with auto corrections if needed
-      - uses: peter-evans/create-pull-request@v3
-        with:
-          token: ${{ secrets.PAT }}
-          commit-message: 'Fixes code using Theme Check'
-          title: 'Fixes code using Theme Check'
       # deploy shopify theme
       - uses: pgrimaud/action-shopify@master
         env:
