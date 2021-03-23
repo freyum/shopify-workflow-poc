@@ -14,8 +14,8 @@ jobs:
       - uses: actions/checkout@v2
       # run theme check
       - uses: pgrimaud/action-shopify-theme-check@master
-      env:
-        THEMECHECK_OPTIONS: '-a'
+        env:
+          THEMECHECK_OPTIONS: '-a'
       # create a PR with auto corrections if needed
       - uses: peter-evans/create-pull-request@v3.8
         with:
