@@ -20,5 +20,5 @@ jobs:
           GITHUB_TOKEN: ${{ secrets.PAT }}
         with:
           title: ${{ github.event.pull_request.title }}
-          branch: ${{ github.event.pull_request.base.ref }}
+          branch: ${{ github.event.pull_request.head.ref }}
           commit-message: "Fixes code using Theme Check"
