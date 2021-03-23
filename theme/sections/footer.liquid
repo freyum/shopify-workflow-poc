@@ -1,3 +1,4 @@
+{% comment %}theme-check-disable{% endcomment %}
 {%- assign social_icons = false -%}
 {%- assign inline_list = false -%}
 {%- assign locale_selector = false -%}
@@ -300,9 +301,7 @@
               {%- if settings[social_link] != blank -%}
                 <li class="social-icons__item">
                   <a class="social-icons__link" href="{{ settings[social_link] | escape }}" aria-describedby="a11y-external-message">
-                    {% comment %}theme-check-disable{% endcomment %}
                     {%- include icon_link -%}
-                    {% comment %}theme-check-enable{% endcomment %}
                     <span class="icon__fallback-text">{{ social }}</span>
                   </a>
                 </li>
