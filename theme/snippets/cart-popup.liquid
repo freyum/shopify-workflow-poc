@@ -10,7 +10,7 @@
   <div class="cart-popup" data-cart-popup tabindex="-1">
     <div class="cart-popup__header">
       <h2 id="CartPopupHeading" class="cart-popup__heading">{{ 'cart.popup.added_to_cart' | t }}</h2>
-      <button class="cart-popup__close" aria-label="{{ 'general.accessibility.close_modal' | t }}" data-cart-popup-close>{% include 'icon-close' %}</button>
+      <button class="cart-popup__close" aria-label="{{ 'general.accessibility.close_modal' | t }}" data-cart-popup-close>{% render 'icon-close' %}</button>
     </div>
     <div class="cart-popup-item">
       <div class="cart-popup-item__image-wrapper hide" data-cart-popup-image-wrapper>

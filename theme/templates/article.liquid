@@ -39,19 +39,19 @@
                 {% endcomment %}
                 {% if comment.status == 'pending' %}
                   <li id="{{ comment.id }}" class="comment">
-                    {% include 'comment', comment: comment %}
+                    {% render 'comment', comment: comment %}
                   </li>
                 {% endif %}
 
                 {% for comment in article.comments %}
                   <li id="{{ comment.id }}" class="comment">
-                    {% include 'comment', comment: comment %}
+                    {% render 'comment', comment: comment %}
                   </li>
                 {% endfor %}
               </ul>
 
               {%- if paginate.pages > 1 -%}
-                {% include 'pagination', paginate: paginate %}
+                {% render 'pagination', paginate: paginate %}
               {%- endif -%}
 
             </div>
@@ -79,7 +79,7 @@
               {%- assign post_message = 'blogs.comments.unapproved' -%}
             {%- endif -%}
 
-            {% include 'form-status', form: form, form_id: formId, success_message: post_message %}
+            {% render 'form-status', form: form, form_id: formId, success_message: post_message %}
 
             <div class="grid">
 
@@ -89,7 +89,7 @@
                 {% if form.errors contains 'author' %}
                   <span id="{{ formId}}-author-error" class="input-error-message">
                     <span class="visually-hidden">{{ 'general.accessibility.error' | t }} </span>
-                    {% include 'icon-error' %}
+                    {% render 'icon-error' %}
                     <span>{{ 'blogs.comments.name' | t }} {{ form.errors.messages['author'] }}.</span>
                   </span>
                 {% endif %}
@@ -101,7 +101,7 @@
                 {% if form.errors contains 'email' %}
                   <span id="{{ formId}}-email-error" class="input-error-message">
                     <span class="visually-hidden">{{ 'general.accessibility.error' | t }} </span>
-                    {% include 'icon-error' %}
+                    {% render 'icon-error' %}
                     <span>{{ form.errors.translated_fields['email'] | capitalize }} {{ form.errors.messages['email'] }}.</span>
                   </span>
                 {% endif %}
@@ -113,7 +113,7 @@
                 {% if form.errors contains 'body' %}
                   <span id="{{ formId}}-body-error" class="input-error-message">
                     <span class="visually-hidden">{{ 'general.accessibility.error' | t }} </span>
-                    {% include 'icon-error' %}
+                    {% render 'icon-error' %}
                     <span>{{ 'blogs.comments.message' | t }} {{ form.errors.messages['body'] }}.</span>
                   </span>
                 {% endif %}
@@ -135,7 +135,7 @@
 
 <div class="text-center return-link-wrapper page-width">
   <a href="{{ blog.url }}" class="btn btn--secondary btn--has-icon-before">
-    {% include 'icon-arrow-left' %}
+    {% render 'icon-arrow-left' %}
     {{ 'blogs.article.back_to_blog' | t: title: blog.title }}
   </a>
 </div>

@@ -14,7 +14,7 @@
   </style>
 {% endif %}
 
-{% include 'search-drawer' %}
+{% render 'search-drawer' %}
 
 <div data-section-id="{{ section.id }}" data-section-type="header-section" data-header-section>
   {% if section.settings.message %}
@@ -108,7 +108,7 @@
 
       {% if section.settings.align_logo == 'left' %}
         <nav class="grid__item medium-up--one-half small--hide" id="AccessibleNav" role="navigation">
-          {% include 'site-nav', linklist: section.settings.main_linklist %}
+          {% render 'site-nav', linklist: section.settings.main_linklist %}
         </nav>
       {% endif %}
 
@@ -116,26 +116,26 @@
         <div class="site-header__icons-wrapper">
 
           <button type="button" class="btn--link site-header__icon site-header__search-toggle js-drawer-open-top">
-            {% include 'icon-search' %}
+            {% render 'icon-search' %}
             <span class="icon__fallback-text">{{ 'layout.navigation.search' | t }}</span>
           </button>
 
           {% if shop.customer_accounts_enabled %}
             {% if customer %}
               <a href="{{ routes.account_url }}" class="site-header__icon site-header__account">
-                {% include 'icon-login' %}
+                {% render 'icon-login' %}
                 <span class="icon__fallback-text">{{ 'layout.customer.account' | t }}</span>
               </a>
             {% else %}
               <a href="{{ routes.account_login_url }}" class="site-header__icon site-header__account">
-                {% include 'icon-login' %}
+                {% render 'icon-login' %}
                 <span class="icon__fallback-text">{{ 'layout.customer.log_in' | t }}</span>
               </a>
             {% endif %}
           {% endif %}
 
           <a href="{{ routes.cart_url }}" class="site-header__icon site-header__cart">
-            {% include 'icon-cart' %}
+            {% render 'icon-cart' %}
             <span class="icon__fallback-text">{{ 'layout.cart.title' | t }}</span>
             <div id="CartCount" class="site-header__cart-count{% if cart.item_count == 0 %} hide{% endif %}" data-cart-count-bubble>
               <span data-cart-count>{{ cart.item_count }}</span>
@@ -145,8 +145,8 @@
 
           {% unless linklists[section.settings.main_linklist] == blank %}
             <button type="button" class="btn--link site-header__icon site-header__menu js-mobile-nav-toggle mobile-nav--open" aria-controls="MobileNav"  aria-expanded="false" aria-label="{{ 'layout.navigation.menu' | t }}">
-              {% include 'icon-hamburger' %}
-              {% include 'icon-close' %}
+              {% render 'icon-hamburger' %}
+              {% render 'icon-close' %}
             </button>
           {% endunless %}
         </div>
@@ -165,7 +165,7 @@
               <button type="button" class="btn--link js-toggle-submenu mobile-nav__link{% if link.child_active %} mobile-nav__link--active{% endif %}" data-target="{{ child_list_handle }}" data-level="1" aria-expanded="false">
                 <span class="mobile-nav__label">{{ link.title | escape }}</span>
                 <div class="mobile-nav__icon">
-                  {% include 'icon-chevron-right' %}
+                  {% render 'icon-chevron-right' %}
                 </div>
               </button>
               <ul class="mobile-nav__dropdown" data-parent="{{ child_list_handle }}" data-level="2">
@@ -176,7 +176,7 @@
                   <div class="mobile-nav__table">
                     <div class="mobile-nav__table-cell mobile-nav__return">
                       <button class="btn--link js-toggle-submenu mobile-nav__return-btn" type="button" aria-expanded="true" aria-label="{{ link.title }}">
-                        {% include 'icon-chevron-left' %}
+                        {% render 'icon-chevron-left' %}
                       </button>
                     </div>
                     <span class="mobile-nav__sublist-link mobile-nav__sublist-header mobile-nav__sublist-header--main-nav-parent">
@@ -192,7 +192,7 @@
                       <button type="button" class="btn--link js-toggle-submenu mobile-nav__link mobile-nav__sublist-link" data-target="{{ grandchild_list_handle }}" aria-expanded="false">
                         <span class="mobile-nav__label">{{ childlink.title | escape }}</span>
                         <div class="mobile-nav__icon">
-                          {% include 'icon-chevron-right' %}
+                          {% render 'icon-chevron-right' %}
                         </div>
                       </button>
                       <ul class="mobile-nav__dropdown" data-parent="{{ grandchild_list_handle }}" data-level="3">
@@ -203,7 +203,7 @@
                           <div class="mobile-nav__table">
                             <div class="mobile-nav__table-cell mobile-nav__return">
                               <button type="button" class="btn--link js-toggle-submenu mobile-nav__return-btn" data-target="{{ child_list_handle }}" aria-expanded="true" aria-label="{{ childlink.title }}">
-                                {% include 'icon-chevron-left' %}
+                                {% render 'icon-chevron-left' %}
                               </button>
                             </div>
                             <a href="{{ childlink.url }}"
@@ -252,7 +252,7 @@
 
   {% if section.settings.align_logo == 'center' %}
   <nav class="small--hide border-bottom" id="AccessibleNav" role="navigation">
-    {% include 'site-nav', linklist: section.settings.main_linklist, wrapper_class: 'site-nav--centered' %}
+    {% render 'site-nav', linklist: section.settings.main_linklist, wrapper_class: 'site-nav--centered' %}
   </nav>
   {% endif %}
 </div>

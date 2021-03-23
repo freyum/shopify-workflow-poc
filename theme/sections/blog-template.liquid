@@ -13,7 +13,7 @@
               <option value="{{ blog.url }}/tagged/{{ tag | handleize }}" {% if current_tags contains tag %}selected{% endif %}>{{ tag }}</option>
             {% endfor %}
           </select>
-          {% include 'icon-chevron-down' %}
+          {% render 'icon-chevron-down' %}
         </div>
       </div>
     {% endif %}
@@ -32,7 +32,7 @@
               {% capture img_wrapper_id %}ArticleImageWrapper-{{ article.image.id }}{% endcapture %}
               {%- assign img_url = article.image | img_url: '1x1' | replace: '_1x1.', '_{width}x.' -%}
 
-              {% include 'image-style', image: article.image, height: 345, wrapper_id: img_wrapper_id, img_id: img_id %}
+              {% render 'image-style', image: article.image, height: 345, wrapper_id: img_wrapper_id, img_id: img_id %}
               <div id="{{ img_wrapper_id }}" class="article__grid-image-wrapper js">
                 <div class="article__grid-image-container" style="padding-top:{{ 1 | divided_by: article.image.aspect_ratio | times: 100 }}%;">
                   <img id="{{ img_id }}"
@@ -132,7 +132,7 @@
                   {% capture img_wrapper_id %}ArticleImageWrapper-{{ article.image.id }}{% endcapture %}
                   {%- assign img_url = article.image | img_url: '1x1' | replace: '_1x1.', '_{width}x.' -%}
 
-                  {% include 'image-style', image: article.image, height: 600, wrapper_id: img_wrapper_id, img_id: img_id %}
+                  {% render 'image-style', image: article.image, height: 600, wrapper_id: img_wrapper_id, img_id: img_id %}
 
                   <div id="{{ img_wrapper_id }}" class="article__list-image-wrapper js">
                     <a href="{{ article.url }}" style="padding-top:{{ 1 | divided_by: article.image.aspect_ratio | times: 100 }}%;" class="article__list-image-container">
@@ -198,7 +198,7 @@
 {% endif %}
 
 {%- if paginate.pages > 1 -%}
-  {% include 'pagination', paginate: paginate %}
+  {% render 'pagination', paginate: paginate %}
 {%- endif -%}
 
 {% endpaginate %}

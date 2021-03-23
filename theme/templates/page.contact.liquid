@@ -14,7 +14,7 @@
       <div class="contact-form form-vertical">
         {%- assign formId = 'ContactForm' -%}
         {% form 'contact', id: formId %}
-          {% include 'form-status', form: form, form_id: formId %}
+          {% render 'form-status', form: form, form_id: formId %}
 
           <div class="grid grid--half-gutters">
             <div class="grid__item medium-up--one-half">
@@ -40,7 +40,7 @@
               {%- if form.errors contains 'email' -%}
                 <span id="{{ formId}}-email-error" class="input-error-message">
                   <span class="visually-hidden">{{ 'general.accessibility.error' | t }} </span>
-                  {% include 'icon-error' %}
+                  {% render 'icon-error' %}
                   <span>{{ form.errors.translated_fields['email'] | capitalize }} {{ form.errors.messages['email'] }}.</span>
                 </span>
               {%- endif -%}

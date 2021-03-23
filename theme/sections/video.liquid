@@ -36,7 +36,7 @@
               {% if section.settings.style == 'background' %} video-control__close-background{% endif %}"
               data-controls="Video-{{ section.id }}">
         <span class="video-control video-control__close">
-          {% include 'icon-close' %}
+          {% render 'icon-close' %}
           <span class="icon__fallback-text">{{ 'sections.video.close' | t: video_title: '[video_title]' }}</span>
         </span>
       </button>
@@ -57,7 +57,7 @@
         </div>
       {%- else -%}
         <div class="video__image box ratio-container lazyload js"
-              data-bgset="{% include 'bgset', image: section.settings.image %}"
+              data-bgset="{% render 'bgset', image: section.settings.image %}"
               data-sizes="auto"
               data-parent-fit="contain"
               style="background-position: {{ section.settings.image_position }};
@@ -90,7 +90,7 @@
                 <div class="video-play-loader"></div>
               {%- endif -%}
               <button type="button" class="btn video-control video-control__play" data-controls="Video-{{ section.id }}">
-                {% include 'icon-play' %}
+                {% render 'icon-play' %}
                 <span class="icon__fallback-text">{{ 'sections.video.play' | t: video_title: '[video_title]' }}</span>
               </button>
             </div>
@@ -103,18 +103,18 @@
           <div class="video-play-loader"></div>
         {%- endif -%}
         <button type="button" class="btn video-control video-control__play" data-controls="Video-{{ section.id }}">
-          {% include 'icon-play' %}
+          {% render 'icon-play' %}
           <span class="icon__fallback-text">{{ 'sections.video.play' | t: video_title: '[video_title]' }}</span>
         </button>
       </div>
 
       <button type="button" class="video__pause{% unless section.settings.style == 'background' %} visually-hidden" tabindex="-1{% endunless %}" data-id="{{ section.id }}" aria-live="polite" aria-pressed="false" data-controls="Video-{{ section.id }}">
         <span class="video__pause-stop">
-          {% include 'icon-pause' %}
+          {% render 'icon-pause' %}
           <span class="icon__fallback-text">{{ 'sections.video.pause' | t: video_title: '[video_title]' }}</span>
         </span>
         <span class="video__pause-resume">
-          {% include 'icon-play' %}
+          {% render 'icon-play' %}
           <span class="icon__fallback-text">{{ 'sections.video.resume' | t: video_title: '[video_title]' }}</span>
         </span>
       </button>

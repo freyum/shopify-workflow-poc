@@ -34,7 +34,7 @@
     <meta name="description" content="{{ page_description | escape }}">
   {%- endif -%}
 
-  {% include 'social-meta-tags' %}
+  {% render 'social-meta-tags' %}
 
   {{ 'theme.scss.css' | asset_url | stylesheet_tag }}
 
@@ -53,7 +53,7 @@
         salePrice: {{ 'products.product.sale_price' | t | json }},
         sale: {{ 'products.product.on_sale' | t | json }},
         fromLowestPrice: {{ 'products.product.from_lowest_price_html' | t: lowest_price: '[price]' | json }},
-        vendor: {{'products.product.vendor' | t | json }},
+        vendor: {{ 'products.product.vendor' | t | json }},
         showMore: {{ 'general.filters.show_more' | t | json }},
         showLess: {{ 'general.filters.show_less' | t | json }},
         searchFor: {{ 'general.search.search_for' | t | json }},
@@ -112,7 +112,7 @@
   <a class="in-page-link visually-hidden skip-link" href="#MainContent">{{ 'general.accessibility.skip_to_content' | t }}</a>
 
   {%- if settings.enable_ajax -%}
-    {% include 'cart-popup' %}
+    {% render 'cart-popup' %}
   {%- endif -%}
 
   {% section 'header' %}

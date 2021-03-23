@@ -5,9 +5,9 @@
         {% capture img_id %}FeatureRowImage-{{ section.id }}{% endcapture %}
         {% capture wrapper_id %}FeatureRowImageWrapper-{{ section.id }}{% endcapture %}
         {%- assign img_url = section.settings.image | img_url: '1x1' | replace: '_1x1.', '_{width}x.' -%}
-        {% include 'image-style', image: section.settings.image, height: 545, wrapper_id: wrapper_id, img_id: img_id %}
+        {% render 'image-style', image: section.settings.image, height: 545, wrapper_id: wrapper_id, img_id: img_id %}
         <div id="{{ wrapper_id }}" class="feature-row__image-wrapper js">
-          <div style="padding-top:{{ 1 | divided_by: section.settings.image.aspect_ratio | times: 100}}%;">
+          <div style="padding-top:{{ 1 | divided_by: section.settings.image.aspect_ratio | times: 100 }}%;">
             <img id="{{ img_id }}"
                  class="feature-row__image lazyload"
                  src="{{ section.settings.image | img_url: '200x200' }}"

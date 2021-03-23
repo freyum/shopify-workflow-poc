@@ -39,7 +39,7 @@
                     <ul class="order-discount order-discount--list order-discount--title" aria-label="{{ 'customer.order.discount' | t }}">
                       {%- for discount_allocation in line_item.line_level_discount_allocations -%}
                         <li class="order-discount__item">
-                          {% include 'icon-saletag' %}{{ discount_allocation.discount_application.title }} (-{{ discount_allocation.amount | money }})
+                          {% render 'icon-saletag' %}{{ discount_allocation.discount_application.title }} (-{{ discount_allocation.amount | money }})
                         </li>
                       {%- endfor -%}
                     </ul>
@@ -146,13 +146,13 @@
                 <th class="small--hide" scope="row" colspan="4">
                   {{ 'customer.order.discount' | t }}
                   <span class="order-discount order-discount--title">
-                    {% include 'icon-saletag' %}{{- discount_application.title -}}
+                    {% render 'icon-saletag' %}{{- discount_application.title -}}
                   </span>
                 </th>
                 <td class="text-right" data-label="{{ 'customer.order.discount' | t }}">
                   <div class="order-discount-wrapper">
                     <span class="order-discount order-discount--title text-left medium-up--hide">
-                      {% include 'icon-saletag' %}{{- discount_application.title -}}
+                      {% render 'icon-saletag' %}{{- discount_application.title -}}
                     </span>
                     <span class="order-discount">-{{ discount_application.total_allocated_amount | money }}</span>
                   </div>

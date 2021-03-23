@@ -42,7 +42,7 @@
 
         {% endif %}
         {%- if paginate.pages > 1 -%}
-          {% include 'pagination', paginate: paginate %}
+          {% render 'pagination', paginate: paginate %}
         {%- endif -%}
       {% endpaginate %}
     </div>
