@@ -52,7 +52,7 @@
             {% when 'image' %}
               {% if block.settings.image != blank %}
                 {%- assign img_url = block.settings.image | img_url: '1x1' | replace: '_1x1.', '_{width}x.' -%}
-                <div style="padding-top:{{ 1 | divided_by: block.settings.image.aspect_ratio | times: 100 }}%;">
+                <div style="padding-top:{{ 1 | divided_by: block.settings.image.aspect_ratio | times: 100}}%;">
                   <img id="{{ img_id }}"
                        class="custom__image lazyload js"
                        src="{{ block.settings.image | img_url: '300x300' }}"
