@@ -5,7 +5,7 @@ on:
 
 jobs:
   deploy:
-    name: Deploy Staging Theme
+    name: Pull Request CI
     runs-on: ubuntu-latest
     steps:
       # basically git clone
@@ -20,4 +20,5 @@ jobs:
           GITHUB_TOKEN: ${{ secrets.PAT }}
         with:
           title: ${{ github.event.pull_request.title }}
+          branch: ${{ github.event.pull_request.base.ref }}
           commit-message: "Fixes code using Theme Check"
