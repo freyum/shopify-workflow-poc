@@ -2,7 +2,6 @@ name: Deploy Staging Theme
 
 on:
   push:
-    pull_request: null
     branches:
       - develop
 
@@ -13,8 +12,10 @@ jobs:
     steps:
       # basically git clone
       - uses: actions/checkout@v2
-      # deploy shopify theme
+      # run theme check
       - uses: pgrimaud/action-shopify@master
+      # deploy shopify theme
+      - uses: pgrimaud/action-shopify-theme-check@master
         env:
           SHOPIFY_PASSWORD: ${{ secrets.SHOPIFY_STAGING_PASSWORD }}
           SHOPIFY_STORE_URL: ${{ secrets.SHOPIFY_STAGING_STORE_URL }}

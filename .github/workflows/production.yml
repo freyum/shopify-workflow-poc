@@ -2,7 +2,6 @@ name: Deploy Production Theme
 
 on:
   push:
-    pull_request: null
     branches:
       - master
 
