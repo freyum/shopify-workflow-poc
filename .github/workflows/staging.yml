@@ -14,7 +14,7 @@ jobs:
       # basically git clone
       - uses: actions/checkout@v2
       # deploy shopify theme
-      - uses: pgrimaud/action-shopify@2.1.0
+      - uses: pgrimaud/action-shopify@master
         env:
           SHOPIFY_PASSWORD: ${{ secrets.SHOPIFY_STAGING_PASSWORD }}
           SHOPIFY_STORE_URL: ${{ secrets.SHOPIFY_STAGING_STORE_URL }}

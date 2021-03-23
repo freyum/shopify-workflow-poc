@@ -27,7 +27,7 @@
   <ul class="grid grid--uniform grid--view-items">
     {% for product in collection.products limit: product_limit %}
       <li class="grid__item grid__item--{{section.id}} {{ grid_item_width }}">
-        {% include 'product-card-grid', max_height: max_height, product: product, show_vendor: section.settings.show_vendor %}
+        {% render 'product-card-grid', max_height: max_height, product: product, show_vendor: section.settings.show_vendor %}
       </li>
     {% else %}
 
@@ -42,7 +42,7 @@
               {{ 'product-' | append: current | placeholder_svg_tag: 'placeholder-svg' }}
             </div>
             <div class="h4 grid-view-item__title" aria-hidden="true">{{ 'homepage.onboarding.product_title' | t }}</div>
-            {% include 'product-price' %}
+            {% render 'product-price' %}
           </div>
         </li>
       {% endfor %}

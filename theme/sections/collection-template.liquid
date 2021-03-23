@@ -27,7 +27,7 @@
     {% if section.settings.show_collection_image and collection.image %}
       <div class="collection-hero">
         <div class="collection-hero__image ratio-container lazyload js"
-             data-bgset="{% include 'bgset', image: collection.image %}"
+             data-bgset="{% render 'bgset', image: collection.image %}"
              data-sizes="auto"
              data-parent-fit="cover"
              style="background-image: url('{{ collection.image | img_url: '300x300' }});"></div>
@@ -91,7 +91,7 @@
                           <option value="{{ new_url }}"{% if current_tags contains tag %} selected="selected"{% endif %}>{{ tag }}</option>
                         {% endfor %}
                       </select>
-                      {% include 'icon-chevron-down' %}
+                      {% render 'icon-chevron-down' %}
                     </div>
                   </div>
                 {% endunless %}
@@ -111,7 +111,7 @@
                         <option value="{{ option.value }}" {% if option.value == sort_by %}selected="selected"{% endif %}>{{ option.name }}</option>
                       {%- endfor -%}
                     </select>
-                    {% include 'icon-chevron-down' %}
+                    {% render 'icon-chevron-down' %}
                   </div>
                 </div>
               {% endif %}
@@ -142,7 +142,7 @@
       <ul class="grid grid--uniform{% if collection.products_count > 0 %} grid--view-items{% endif %}">
         {% for product in collection.products %}
           <li class="grid__item grid__item--{{section.id}} {{ grid_item_width }}">
-            {% include 'product-card-grid', max_height: max_height, product: product, show_vendor: section.settings.show_vendor %}
+            {% render 'product-card-grid', max_height: max_height, product: product, show_vendor: section.settings.show_vendor %}
           </li>
         {% else %}
           {% comment %}
@@ -181,7 +181,7 @@
       <ul class="list-view-items">
         {% for product in collection.products %}
           <li class="list-view-item">
-            {% include 'product-card-list', product: product, show_vendor: section.settings.show_vendor %}
+            {% render 'product-card-list', product: product, show_vendor: section.settings.show_vendor %}
           </li>
         {% else %}
 
@@ -191,7 +191,7 @@
           The onboarding styles and products are only loaded if the
           store has no products.
           {% endcomment %}
-          {% if collection.handle == 'all' and collection.all_vendors.size == 0 and collection.all_types.size == 0%}
+          {% if collection.handle == 'all' and collection.all_vendors.size == 0 and collection.all_types.size == 0 %}
             {% for i in (1..4) %}
               <li class="list-view-item">
                 <a href="#" class="list-view-item__link">
@@ -228,7 +228,7 @@
     {% endif %}
 
     {%- if paginate.pages > 1 -%}
-      {% include 'pagination', paginate: paginate %}
+      {% render 'pagination', paginate: paginate %}
     {%- endif -%}
   </div>
 </div>

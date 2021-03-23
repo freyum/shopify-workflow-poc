@@ -96,7 +96,7 @@
             {%- if form.errors -%}
               <span id="RecoverEmail-email-error" class="input-error-message">
                 <span class="visually-hidden">{{ 'general.accessibility.error' | t }} </span>
-                {% include 'icon-error' %}
+                {% render 'icon-error' %}
                 <span>{{ form.errors.messages['form'] }}</span>
               </span>
             {%- endif -%}

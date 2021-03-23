@@ -15,13 +15,13 @@
       {% if block.settings.link != blank %}
         <a class="image-bar__link" href="{{ block.settings.link }}">
           <div class="image-bar__item box ratio-container lazyload"
-               data-bgset="{% include 'bgset', image: block.settings.image %}"
+               data-bgset="{% render 'bgset', image: block.settings.image %}"
                data-sizes="auto"
                data-parent-fit="cover"
                style="background-position: {{ block.settings.alignment }}; background-image: url('{{ block.settings.image | img_url: '300x300' }});">
       {% elsif block.settings.image != blank %}
         <div class="image-bar__item image-bar__item--{{ block.id }} box ratio-container lazyload"
-             data-bgset="{% include 'bgset', image: block.settings.image %}"
+             data-bgset="{% render 'bgset', image: block.settings.image %}"
              data-sizes="auto"
              data-parent-fit="cover"
              style="background-position: {{ block.settings.alignment }}; background-image: url('{{ block.settings.image | img_url: '300x300' }});">
@@ -54,7 +54,7 @@
 </div>
 
 {% if section.blocks.size == 0 %}
-  {% include 'no-blocks' %}
+  {% render 'no-blocks' %}
 {% endif %}
 
 

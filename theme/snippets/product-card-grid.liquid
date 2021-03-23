@@ -6,7 +6,7 @@
     - show_vendor: {Boolean} Show the product's vendor depending on the section setting (optional)
 
     Usage:
-    {% include 'product-card-grid', max_height: max_height, product: product, show_vendor: section.settings.show_vendor %}
+    {% render 'product-card-grid', max_height: max_height, product: product, show_vendor: section.settings.show_vendor %}
 {% endcomment %}
 <div class="grid-view-item{% unless product.available %} grid-view-item--sold-out{% endunless %} product-card">
   <a class="grid-view-item__link grid-view-item__image-container full-width-link" href="{{ product.url | within: collection }}">
@@ -19,7 +19,7 @@
   {%- assign img_url = preview_image | img_url: '1x1' | replace: '_1x1.', '_{width}x.' -%}
 
   {% unless preview_image == blank %}
-    {% include 'image-style', image: preview_image, height: max_height, wrapper_id: wrapper_id, img_id: img_id %}
+    {% render 'image-style', image: preview_image, height: max_height, wrapper_id: wrapper_id, img_id: img_id %}
   {% endunless %}
 
   <div class="product-card__image-with-placeholder-wrapper" data-image-with-placeholder-wrapper>
@@ -45,6 +45,6 @@
 
   <div class="h4 grid-view-item__title product-card__title" aria-hidden="true">{{ product.title }}</div>
 
-  {% include 'product-price-listing', product: product, show_vendor: show_vendor %}
+  {% render 'product-price-listing', product: product, show_vendor: show_vendor %}
 
 </div>

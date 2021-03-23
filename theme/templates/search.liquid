@@ -39,14 +39,14 @@
                 <input type="hidden" name="options[prefix]" value="last" aria-hidden="true" />
 
                 <button type="reset" class="search-form__clear-action" aria-label="{{ 'general.search.clear_search_term' | t }}" data-search-page-predictive-search-clear>
-                  {% include 'icon-close' %}
+                  {% render 'icon-close' %}
                 </button>
 
                 <div class="predictive-search-wrapper" data-predictive-search-mount="default"></div>
               </div>
 
               <button type="submit" class="search-form__connected-submit" aria-label="{{ 'general.search.submit' | t }}" data-search-page-predictive-search-submit>
-                {% include 'icon-search' %}
+                {% render 'icon-search' %}
               </button>
             </div>
           </form>
@@ -67,7 +67,7 @@
     {% for item in search.results %}
       <li class="list-view-item">
         {% if item.object_type == 'product' %}
-          {% include 'product-card-list', product: item %}
+          {% render 'product-card-list', product: item %}
         {% else %}
           <div class="product-card product-card--list">
             <a href="{{ item.url }}" class="full-width-link">
@@ -99,11 +99,11 @@
   </ul>
 
   {%- if paginate.pages > 1 -%}
-    {% include 'pagination', paginate: paginate %}
+    {% render 'pagination', paginate: paginate %}
   {%- endif -%}
 {% endif %}
 
-{% if search.results_count < 2  %}
+{% if search.results_count < 2 %}
   <div class="search--less-than-2-results"></div>
 {% endif %}
 

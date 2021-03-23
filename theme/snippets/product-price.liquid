@@ -7,7 +7,7 @@
     - show_vendor: {Boolean} Show the product's vendor depending on the section setting (optional)
 
     Usage:
-    {% include 'product-price', variant: current_variant, product: product %}
+    {% render 'product-price', variant: current_variant, product: product %}
 {% endcomment %}
 {%- liquid
   if variant.title

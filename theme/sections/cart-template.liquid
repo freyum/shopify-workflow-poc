@@ -156,7 +156,7 @@
                 <ul class="order-discount order-discount--list order-discount--title order-discount--cart{% if item.line_level_discount_allocations == blank %} hide{% endif %}" aria-label="{{ 'customer.order.discount' | t }}" data-cart-item-discount-list>
                   {%- for discount_allocation in itemDiscounts -%}
                     <li class="order-discount__item" data-cart-item-discount>
-                      {% include 'icon-saletag' %}
+                      {% render 'icon-saletag' %}
                       <span data-cart-item-discount-title>
                         {{- discount_allocation.discount_application.title -}}
                       </span> (-<span data-cart-item-discount-amount>{{ discount_allocation.amount | money }}</span>)
@@ -174,7 +174,7 @@
                 </div>
                 <div class="cart__qty-error-message-wrapper cart__qty-error-message-wrapper--mobile hide" role="alert" data-cart-quantity-error-message-wrapper>
                   <span class="visually-hidden">{{ 'general.accessibility.error' | t }} </span>
-                  {% include 'icon-error' %}
+                  {% render 'icon-error' %}
                   <span class="cart__qty-error-message" data-cart-quantity-error-message></span>
                 </div>
               </td>
@@ -187,7 +187,7 @@
                 </div>
                 <div class="cart__qty-error-message-wrapper cart__qty-error-message-wrapper--desktop hide" role="alert" data-cart-quantity-error-message-wrapper>
                   <span class="visually-hidden">{{ 'general.accessibility.error' | t }} </span>
-                  {% include 'icon-error' %}
+                  {% render 'icon-error' %}
                   <span class="cart__qty-error-message" data-cart-quantity-error-message></span>
                 </div>
               </td>
@@ -240,7 +240,7 @@
               <div class="order-discount-card-wrapper" data-cart-discount>
                 {%- for discount_application in cartDiscounts -%}
                   <span class="order-discount order-discount--title order-discount--cart">
-                    {% include 'icon-saletag' %}<span class="visually-hidden">{{ 'customer.order.discount' | t }}:</span><span data-cart-discount-title>{{- discount_application.title -}}</span>
+                    {% render 'icon-saletag' %}<span class="visually-hidden">{{ 'customer.order.discount' | t }}:</span><span data-cart-discount-title>{{- discount_application.title -}}</span>
                   </span>
                   <span class="order-discount order-discount--cart order-discount--cart-total">
                     -<span data-cart-discount-amount>{{ discount_application.total_allocated_amount | money }}</span>
@@ -280,7 +280,7 @@
 
               <div class="cart__error-message-wrapper hide" role="alert" data-cart-error-message-wrapper>
                 <span class="visually-hidden">{{ 'general.accessibility.error' | t }} </span>
-                {% include 'icon-error' %}
+                {% render 'icon-error' %}
                 <span class="cart__error-message" data-cart-error-message></span>
               </div>
 
@@ -305,7 +305,7 @@
     <div class="cookie-message">
       <p>{{ 'cart.general.cookies_required' | t }}</p>
     </div>
-    <a href="{{ routes.root_url }}" class="btn btn--has-icon-after cart__continue-btn">{{ 'general.404.link' | t }}{% include 'icon-arrow-right' %}</a>
+    <a href="{{ routes.root_url }}" class="btn btn--has-icon-after cart__continue-btn">{{ 'general.404.link' | t }}{% render 'icon-arrow-right' %}</a>
   </div>
 </div>
 

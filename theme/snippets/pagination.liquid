@@ -5,20 +5,20 @@
     - paginate: {Object} Paginate Liquid object (required)
 
     Usage:
-    {% include 'pagination', paginate: paginate %}
+    {% render 'pagination', paginate: paginate %}
 {% endcomment %}
 <ul class="list--inline pagination">
   {% unless paginate.previous.is_link %}
     <li aria-hidden="true">
       <button class="btn btn--tertiary btn--narrow" disabled>
-        {% include 'icon-arrow-left' %}
+        {% render 'icon-arrow-left' %}
         <span class="icon__fallback-text">{{ 'general.pagination.previous' | t }}</span>
       </button>
     </li>
     {% else %}
     <li>
       <a href="{{ paginate.previous.url }}" class="btn btn--tertiary btn--narrow">
-        {% include 'icon-arrow-left' %}
+        {% render 'icon-arrow-left' %}
         <span class="icon__fallback-text">{{ 'general.pagination.previous' | t }}</span>
       </a>
     </li>
@@ -29,14 +29,14 @@
   {% unless paginate.next.is_link %}
     <li aria-hidden="true">
       <button class="btn btn--tertiary btn--narrow" disabled>
-        {% include 'icon-arrow-right' %}
+        {% render 'icon-arrow-right' %}
         <span class="icon__fallback-text">{{ 'general.pagination.next' | t }}</span>
       </button>
     </li>
   {% else %}
     <li>
       <a href="{{ paginate.next.url }}" class="btn btn--tertiary btn--narrow">
-        {% include 'icon-arrow-right' %}
+        {% render 'icon-arrow-right' %}
         <span class="icon__fallback-text">{{ 'general.pagination.next' | t }}</span>
       </a>
     </li>

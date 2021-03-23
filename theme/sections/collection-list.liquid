@@ -21,14 +21,14 @@
       {% for block in section.blocks limit: section.blocks.size %}
         <li class="grid__item {{ grid_item_width }}" {{ block.shopify_attributes }}>
           {%- assign collection = collections[block.settings.collection] -%}
-          {% include 'collection-grid-item', collection: collection %}
+          {% render 'collection-grid-item', collection: collection %}
         </li>
       {% endfor %}
     </ul>
   </div>
 
   {% if section.blocks.size == 0 %}
-    {% include 'no-blocks' %}
+    {% render 'no-blocks' %}
   {% endif %}
 </div>
 

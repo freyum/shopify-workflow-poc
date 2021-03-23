@@ -1,3 +1,4 @@
+{% comment %}theme-check-disable{% endcomment %}
 {%- assign social_icons = false -%}
 {%- assign inline_list = false -%}
 {%- assign locale_selector = false -%}
@@ -191,7 +192,7 @@
                     {% if form.errors contains 'email' %}
                       <span id="{{ formId }}-email-error" class="input-error-message">
                         <span class="visually-hidden">{{ 'general.accessibility.error' | t }} </span>
-                        {% include 'icon-error' %}
+                        {% render 'icon-error' %}
                         <span class="site-footer__newsletter-error">{{ form.errors.translated_fields['email'] | capitalize }} {{ form.errors.messages['email'] }}.</span>
                       </span>
                     {% endif %}
@@ -310,7 +311,7 @@
             {%- if request.page_type == 'blog' or request.page_type == 'article' -%}
               <li>
                 <a class="social-icons__link" href="{{ shop.url }}{{ blog.url }}.atom">
-                  {% include 'icon-rss' %}
+                  {% render 'icon-rss' %}
                   <span class="icon__fallback-text">RSS</span>
                 </a>
               </li>
