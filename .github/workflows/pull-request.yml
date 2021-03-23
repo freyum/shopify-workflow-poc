@@ -1,4 +1,4 @@
-name: Deploy Staging Theme
+name: Pull Request CI
 
 on:
   pull_request:
@@ -19,5 +19,4 @@ jobs:
         env:
           GITHUB_TOKEN: ${{ secrets.PAT }}
         with:
-          title: "Fixes code using Theme Check"
           commit-message: "Fixes code using Theme Check"
